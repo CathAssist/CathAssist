@@ -1,0 +1,281 @@
+#main label{
+	font-size: 21px;
+}
+#main.small label{
+	font-size: 16px;
+}
+#main.normal label{
+	font-size: 21px;
+}
+#main.large label{
+	font-size: 28px;
+}
+
+#main .button{
+	font-size: 21px;
+}
+#main.small .button{
+	font-size: 16px;
+}
+#main.normal .button{
+	font-size: 21px;
+}
+#main.large .button{
+	font-size: 28px;
+}
+
+#main .list > li > a{
+	font-size: 21px;
+}
+#main.small .list > li > a{
+	font-size: 16px;
+}
+#main.normal .list > li >a{
+	font-size: 21px;
+}
+#main.large .list > li >a{
+	font-size: 28px;
+}
+
+#main .formGroupHead{
+	font-size: 28px;
+}
+#main.small .formGroupHead{
+	font-size: 21px;
+}
+#main.normal .formGroupHead{
+	font-size: 28px;
+}
+#main.large .formGroupHead{
+	font-size: 32px;
+}
+
+#main input[type="checkbox"] + label:before{
+	left: -30px;
+}
+#main.small input[type="checkbox"] + label:before{
+	left: -24px;
+}
+#main.normal input[type="checkbox"] + label:before{
+	left: -30px;
+}
+#main.large input[type="checkbox"] + label:before{
+	left: -38px;
+}
+
+#main input[type="radio"] + label:before{
+	margin-left: -30px;
+}
+#main.small input[type="radio"] + label:before{
+	margin-left: -24px;
+}
+#main.normal input[type="radio"] + label:before{
+	margin-left: -30px;
+}
+#main.large input[type="radio"] + label:before{
+	margin-left: -38px;
+}
+
+
+#main ul.artlist{
+	list-style-type: none;
+	width:100%;
+}
+
+#main ul.artlist a{
+	text-decoration: none;
+	color: rgb(137,137,137);
+}
+
+#main h3.arttitle{
+	font-size: 21px;
+}
+#main.small h3.arttitle{
+	font-size: 16px;
+}
+#main.normal h3.arttitle{
+	font-size: 21px;	
+}
+#main.large h3.arttitle{
+	font-size: 28px;
+}
+
+
+#main img.artimg{
+	float: left;
+	margin: 0 15px 0 0;
+	max-width: 80px;
+}
+
+#main p.artcontent{
+	font-size: 21px;
+	line-height: 24px;
+}
+#main.small p.artcontent{
+	font-size: 14px;
+	line-height: 21px;
+}
+#main.normal p.artcontent{
+	font-size: 21px;
+	line-height: 24px;
+}
+#main.large p.artcontent{
+	font-size: 24px;
+	line-height: 28px;
+}
+
+#main li.artitem{
+	overflow: auto;
+	font-size: 21px;
+	line-height: 24px;
+}
+#main.small li.artitem{
+	font-size: 14px;
+	line-height: 21px;
+}
+#main.normal li.artitem{
+	font-size: 21px;
+	line-height: 24px;
+}
+#main.large li.artitem{
+	font-size: 28px;
+	line-height: 24px;
+}
+
+#main p, #main div.praytext{
+	font-size: 21px;
+	line-height: 24px;
+}
+#main.small p, #main.small div.praytext{
+	font-size: 14px;
+	line-height: 21px;
+}
+#main.normal p, #main.normal div.praytext{
+	font-size: 21px;
+	line-height: 24px;
+}
+#main.large p, #main.large div.praytext{
+	font-size: 24px;
+	line-height: 28px;
+}
+
+li.artitem:hover {
+	cursor: pointer;
+}
+
+#stuff_title h2{
+	text-align: center;
+}
+
+#main #stuff_detail, .main-content, #main #stuff_detail p{
+	padding: 20px 10px 10px;
+	line-height: 24px;
+    font-size:21px;
+}
+#main.small #stuff_detail, .main-content, #main.small #stuff_detail p{
+	line-height: 21px;
+    font-size:14px;
+}
+#main.normal #stuff_detail, .main-content, #main.normal #stuff_detail p{
+	line-height: 24px;
+    font-size:21px;
+}
+#main.large #stuff_detail, .main-content, #main.large #stuff_detail p{
+	line-height: 28px;
+    font-size:24px;
+}
+
+#main .main-content p{
+	padding: 5px 5px 5px;
+	line-height: 24px;
+    font-size:21px;	
+}
+#main.small .main-content p{
+	line-height: 21px;
+    font-size:14px;
+}
+#main.normal .main-content p{
+	line-height: 24px;
+    font-size:21px;
+}
+#main.large .main-content p{
+	line-height: 28px;
+    font-size:21px;
+}
+
+#main .main-content p.bc{
+	padding: 20px 10px 10px;
+}
+#main .main-content p.s{
+	padding: 5px 5px 5px;
+}
+#main .main-content p.t3{
+	padding: 10px 10px 10px;
+	font-weight: bold;
+}
+
+
+#stuff_detail img{
+	width: 99%;
+	margin-left: 0%;
+	margin-right: 1%;
+	margin-bottom: 20px;
+}
+
+
+audio{
+	width:100%;
+}
+
+.afScrollbar{
+	opacity: .4;
+}
+.gap {
+	margin: 10px 0;
+}
+
+.clearfix:before
+,.clearfix:after{
+	display:table;
+	content:" "
+}
+.clearfix:after{
+	clear:both
+}
+.music-info {
+	text-align: center;
+	line-height: 28px;
+}
+
+#pageTitle {
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+#afui #navbar .icon:before {
+	position: relative;
+	font-size: 48px;
+	cursor: pointer;
+	display: block;
+	text-align: center;
+}
+
+#afui.ios #navbar{
+	color: #fff;
+}
+
+#afui.ios7 #shareButton
+{
+	color:rgba(82,155,234,255);
+}
+
+#audioPlayer h4{
+	padding-top: 2px;
+	text-align: center;
+    font-size:16px;
+}
+#audioPlayer h5{
+	padding-top: 2px;
+	text-align: center;
+    font-size:1.0em;
+}

@@ -1,0 +1,165 @@
+<script type="text/javascript">
+	function getTextInUrl(url)
+	{
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.open("GET",url,false);
+		xmlhttp.send();
+		return xmlhttp.responseText;
+	}
+	
+	function gettext(e)
+	{
+		lastE = null;
+		var _t = e.target;
+		var _d = _t.parentNode;
+		if(_d == gettext.lastE)
+			return;
+		
+		var _url = './res/prayer/'+_d.id+".txt";
+		var newDiv = document.createElement("div");
+		newDiv.className="praytext";
+		newDiv.innerHTML = getTextInUrl(_url);
+		_d.appendChild(newDiv);
+		if(gettext.lastE!=null)
+		{
+			var text = gettext.lastE.lastChild;
+			gettext.lastE.removeChild(text);
+		}
+		gettext.lastE=_d;
+	}
+</script>
+<h2>常用经文</h2>
+<ul class="list">
+<li class="artitem" id="xiaoshenghao">
+	<a href="javascript:void(0)" class="praytitle" onclick="gettext(event)">圣号经（小圣号）</a>
+</li>
+<li class="artitem" id="dashenghao">
+	<a href="javascript:void(0)" class="praytitle" onclick="gettext(event)">圣号经（大圣号）</a>
+</li>
+<li class="artitem" id="dianshengshui">
+	<a href="javascript:void(0)" class="praytitle" onclick="gettext(event)">点圣水经</a>
+</li>
+<li class="artitem" id="tianzhujing">
+	<a href="javascript:void(0)" class="praytitle" onclick="gettext(event)">天主经</a>
+</li>
+<li class="artitem" id="shengmujing">
+	<a href="javascript:void(0)" class="praytitle" onclick="gettext(event)">圣母经</a>
+</li>
+<li class="artitem" id="shengsanguangrongsong">
+	<a href="javascript:void(0)" class="praytitle" onclick="gettext(event)">圣三光荣颂</a>
+</li>
+<li class="artitem" id="xinjing">
+	<a href="javascript:void(0)" class="praytitle" onclick="gettext(event)">信经</a>
+</li>
+<li class="artitem" id="fanqianjing">
+	<a href="javascript:void(0)" class="praytitle" onclick="gettext(event)">饭前经</a>
+</li>
+<li class="artitem" id="fanhoujing">
+	<a href="javascript:void(0)" class="praytitle" onclick="gettext(event)">饭后经</a>
+</li>
+<li class="artitem" id="lingshengtiqiansong">
+	<a href="javascript:void(0)" class="praytitle" onclick="gettext(event)">领圣体前诵</a>
+</li>
+<li class="artitem" id="lingshengtihousong">
+	<a href="javascript:void(0)" class="praytitle" onclick="gettext(event)">领圣体后诵</a>
+</li>
+<li class="artitem" id="wubaili">
+	<a href="javascript:void(0)" class="praytitle" onclick="gettext(event)">五拜礼</a>
+</li>
+<li class="artitem" id="wuxieli">
+	<a href="javascript:void(0)" class="praytitle" onclick="gettext(event)">五谢礼</a>
+</li>
+<li class="artitem" id="sanzhongjing">
+	<a href="javascript:void(0)" class="praytitle" onclick="gettext(event)">三钟经</a>
+</li>
+<li class="artitem" id="xilejing">
+	<a href="javascript:void(0)" class="praytitle" onclick="gettext(event)">喜乐经（复活期代替三钟经）</a>
+</li>
+</ul>
+<h2>玫瑰经</h2>
+<ul class="list">
+<li class="artitem" id="meiguijing">
+	<a href="javascript:void(0)" class="praytitle" onclick="gettext(event)">玫瑰经念法</a>
+</li>
+<li class="artitem" id="huanxi5duan">
+	<a href="javascript:void(0)" class="praytitle" onclick="gettext(event)">欢喜五端</a>
+</li>
+<li class="artitem" id="tongku5duan">
+	<a href="javascript:void(0)" class="praytitle" onclick="gettext(event)">痛苦五端</a>
+</li>
+<li class="artitem" id="rongfu5duan">
+	<a href="javascript:void(0)" class="praytitle" onclick="gettext(event)">荣福五端</a>
+</li>
+<li class="artitem" id="guangming5duan">
+	<a href="javascript:void(0)" class="praytitle" onclick="gettext(event)">光明五端</a>
+</li>
+<li class="artitem" id="muhouwanfusong">
+	<a href="javascript:void(0)" class="praytitle" onclick="gettext(event)">母后万福颂</a>
+</li>
+</ul>
+<h2>苦路善工</h2>
+<ul class="list">
+<li class="artitem" id="cibeichuanjing">
+	<a href="javascript:void(0)" class="praytitle" onclick="gettext(event)">慈悲串经</a>
+</li>
+<li class="artitem" id="kulujing">
+	<a href="javascript:void(0)" class="praytitle" onclick="gettext(event)">苦路善工</a>
+</li>
+<li class="artitem" id="shiwupianzhuwen">
+	<a href="javascript:void(0)" class="praytitle" onclick="gettext(event)">祝文十五篇</a>
+</li>
+</ul>
+<h2>常用祈祷文</h2>
+<ul class="list">
+<li class="artitem" id="weizaijiaoshiwangzhesong">
+	<a href="javascript:void(0)" class="praytitle" onclick="gettext(event)">为在教适亡者诵</a>
+</li>
+<li class="artitem" id="weizaijiaoyiwangfumuqinyouenrensong">
+	<a href="javascript:void(0)" class="praytitle" onclick="gettext(event)">为在教已亡父母亲友恩人诵</a>
+</li>
+<li class="artitem" id="weifanzhuxinzhelinghunsong">
+	<a href="javascript:void(0)" class="praytitle" onclick="gettext(event)">为凡诸信者灵魂诵</a>
+</li>
+<li class="artitem" id="fuqiushengshenjianglin_1">
+	<a href="javascript:void(0)" class="praytitle" onclick="gettext(event)">伏求圣神降临经（一）</a>
+</li>
+<li class="artitem" id="fuqiushengshenjianglin_2">
+	<a href="javascript:void(0)" class="praytitle" onclick="gettext(event)">伏求圣神降临经（二）</a>
+</li>
+<li class="artitem" id="qiuhushoutianshisong">
+	<a href="javascript:void(0)" class="praytitle" onclick="gettext(event)">求护守天使诵</a>
+</li>
+<li class="artitem" id="christmas9">
+	<a href="javascript:void(0)" class="praytitle" onclick="gettext(event)">耶酥圣诞节九日敬礼</a>
+</li>
+<li class="artitem" id="chaobaishizijia">
+	<a href="javascript:void(0)" class="praytitle" onclick="gettext(event)">朝拜圣十字架祷文</a>
+</li>
+<li class="artitem" id="shengmuwuranyuanzui">
+	<a href="javascript:void(0)" class="praytitle" onclick="gettext(event)">圣母无染原罪祷文</a>
+</li>
+<li class="artitem" id="shengmushengxin">
+	<a href="javascript:void(0)" class="praytitle" onclick="gettext(event)">圣母圣心祷文</a>
+</li>
+<li class="artitem" id="yesushengti">
+	<a href="javascript:void(0)" class="praytitle" onclick="gettext(event)">耶稣圣体祷文</a>
+</li>
+<li class="artitem" id="shengruose">
+	<a href="javascript:void(0)" class="praytitle" onclick="gettext(event)">圣若瑟祷文</a>
+</li>
+<li class="artitem" id="tianshi">
+	<a href="javascript:void(0)" class="praytitle" onclick="gettext(event)">天使祷文</a>
+</li>
+<li class="artitem" id="yesushengming">
+	<a href="javascript:void(0)" class="praytitle" onclick="gettext(event)">耶稣圣名祷文</a>
+</li>
+<li class="artitem" id="shengshen9">
+	<a href="javascript:void(0)" class="praytitle" onclick="gettext(event)">天主圣神九日敬礼</a>
+</li>
+<li class="artitem" id="lianling">
+	<a href="javascript:void(0)" class="praytitle" onclick="gettext(event)">炼灵祷文</a>
+</li>
+<li class="artitem" id="lianling9">
+	<a href="javascript:void(0)" class="praytitle" onclick="gettext(event)">为炼灵九日敬礼</a>
+</li>
+</ul>

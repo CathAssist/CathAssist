@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>天主教小助手</title>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<link rel="stylesheet" type="text/css" href="./css/ionicons.css" media="screen"  />
+	<link rel="stylesheet" type="text/css" href="./css/src/main.css" />
+	<link rel="stylesheet" type="text/css" href="./css/src/appframework.css"  />
+
+	<link rel="stylesheet" type="text/css" href="./css/src/badges.css" />
+	<link rel="stylesheet" type="text/css" href="./css/src/buttons.css" />
+	<link rel="stylesheet" type="text/css" href="./css/src/lists.css" />
+	<link rel="stylesheet" type="text/css" href="./css/src/forms.css" />
+	<link rel="stylesheet" type="text/css" href="./css/src/grid.css" />
+
+	<link rel="stylesheet" type="text/css" href="./plugins/css/af.actionsheet.css" />
+	<link rel="stylesheet" type="text/css" href="./plugins/css/af.popup.css" />
+	<link rel="stylesheet" type="text/css" href="./plugins/css/af.selectBox.css" />
+
+	<link rel="stylesheet" type="text/css" href="./css/src/android.css" />
+	<link rel="stylesheet" type="text/css" href="./css/src/win8.css" />
+	<link rel="stylesheet" type="text/css" href="./css/src/bb.css" />
+	<link rel="stylesheet" type="text/css" href="./css/src/ios7.css" />
+	<link rel="stylesheet" type="text/css" href="./css/src/ios.css" />
+	<link rel="stylesheet" type="text/css" href="./css/app.css" />
+	<link rel="shortcut icon" href="favicon.ico" />
+	<link href="http://app.cathassist.org/res/icon/ios/icon-72.png" rel="apple-touch-icon-precomposed" />
+	<link href="http://app.cathassist.org/res/icon/ios/icon-72-2x.png" sizes="114x114" rel="apple-touch-icon-precomposed" />
+	<script type="text/javascript" charset="utf-8" src="./appframework.js"></script>
+	<!--<script type="text/javascript" charset="utf-8" src="./jquery.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./jq.appframework.js"></script>-->
+	<script type="text/javascript" charset="utf-8" src="./af.mvc.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./plugins/af.actionsheet.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./plugins/af.css3animate.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./plugins/af.passwordBox.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./plugins/af.scroller.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./plugins/af.selectBox.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./plugins/af.touchEvents.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./plugins/af.touchLayer.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./plugins/af.popup.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./ui/src/appframework.ui.js"></script>
+	<!-- <script type="text/javascript" charset="utf-8" src="./ui/transitions/all.js"></script> -->
+	<script type="text/javascript" charset="utf-8" src="./ui/transitions/fade.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./ui/transitions/flip.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./ui/transitions/pop.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./ui/transitions/slide.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./ui/transitions/slideDown.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./ui/transitions/slideUp.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./plugins/af.slidemenu.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./app.js"></script>
+	<script>
+		var webRoot = "/app/";
+		$.ui.autoLaunch = false;
+		$.ui.openLinksNewTab = false;
+		$.ui.useInteralRouting = false;
+		
+		if (!((window.DocumentTouch && document instanceof DocumentTouch) || 'ontouchstart' in window)) {
+			var script = document.createElement("script");
+			script.src = "plugins/af.desktopBrowsers.js";
+			var tag = $("head").append(script);
+		}
+		
+		$(document).ready(function(){
+			$.ui.launch();
+		});
+		
+		$.ui.ready(function(){
+			//设置默认主题
+			$.os.useOSThemes=true;
+			var _t = window.localStorage.theme;
+			if(_t && _t!='')
+			{
+				$("#afui").get(0).className=_t;
+			}
+
+			//设置默认字体
+			var _s = window.localStorage.fontsize;
+			if(!_s)
+			{
+				_s = "small";
+			}
+			setFontSize(_s);
+			
+			{
+				//初始化播放器
+				var script = document.createElement("script");
+				script.src = "./js/player.js";
+				var tag = $("head").append(script);
+			}
+			
+			//加载cordova.js
+			if(window.location.hostname.length<9)
+			{
+				if ($.os.android || $.os.ios || $.os.ios7)
+				{
+					var script = document.createElement("script");
+					script.src = "./cordova.js";
+					var tag = $("head").append(script);
+					initCordovaFunc();
+				}
+			}
+		});			
+	</script>
+</head>
+<body>
+<div id="afui" class="ios7">
+	<div id="header">
+		<a id='menubadge' onclick='af.ui.toggleSideMenu()' class='menuButton'></a>
+		<a id='shareButton' onclick="shareMessage(sharedMsg)" class="icon ion-share" style="float:right;font-size:40px;visibility:hidden;"></a>
+	</div>
+	<div id="content">
+		<div title='天主教小助手' id="mainc" class="panel" selected="true" data-footer='audioPlayer'>
+			<div id='main'></div>
+		</div>
+	</div>
+	<footer id='audioPlayer'>
+		<div style="float:left;width:54px;height:48px;">
+			<i id="playbutton" class="icon ion-play" onclick="audioPlayer.play();return false;"></i>
+			<i id="activityindicator" class="icon ion-loading-a" onclick="audioPlayer.stop();return false;"></i>
+			<i id="stopbutton" class="icon ion-pause" onclick="audioPlayer.pause();return false;"></i>
+		</div>
+		<div style="width:auto;height:48px;margin-left:54px;position: relative">
+			<div style="width:100%;height:auto;"><h4 id="playTitle" style="width:100%;">普世教会</h4></div>
+			<div style="width:100%;position:absolute;bottom:0;">
+				<div style="float:right;width:54px;">
+					<h5 id="playDuration">--:--</h5>
+				</div>
+				<div style="width:auto;margin-right:54px;position: relative">
+					<input id="playRange" type="range" style="width:100%;" onchange="onPlayRangeChange(this.value)"></input>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<nav>
+		<ul class="list">
+			<li><a href="/home">首页</a></li>
+			<li class="divider">教会动态</li>
+			<li><a href="/article/vaticanacn">普世教会</a></li>
+			<li><a href="/article/faithlife">信仰生活</a></li>
+			<li><a href="/article/articles">主内分享</a></li>
+			<li><a href="/pray">彼此代祷</a></li>
+			<li class="divider">每日灵修</li>
+			<li><a href="/stuff">日课及读经</a></li>
+			<li><a href="/radio">梵蒂冈广播</a></li>
+			<li><a href="/music">色辣芬电台</a></li>
+			<li class="divider">小助手</li>
+			<li><a href="/bible">思高版圣经</a></li>
+			<li><a href="/prayer">常用祈祷文</a></li>
+			<li><a href="/catechism">天主教教理</a></li>
+			<li><a href="/codex">天主教法典</a></li>
+			<li><a href="/settings">设置</a></li>
+		</ul>
+	</nav>
+</div>
+</body>
+</html>

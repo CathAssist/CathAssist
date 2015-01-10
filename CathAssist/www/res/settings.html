@@ -1,0 +1,42 @@
+<div class="formGroupHead">主题设置</div>
+<ul class="list">
+	 <li>
+		<a href="javascript:setTheme('ios')" data-ignore="true">iOS theme</a>
+	</li>
+	<li>
+		<a href="javascript:setTheme('android')" data-ignore="true">Android theme</a>
+	</li>
+   <li>
+		<a href="javascript:setTheme('ios7')" data-ignore="true">ios7</a>
+	</li>
+</ul>
+
+<div class="formGroupHead">播放设置</div>
+<div class="input-group">
+	<label>方式：</label>
+	<input id="autoPlayNextMusic" type="checkbox" onclick="setAutoPlayNextMusic()"><label for="autoPlayNextMusic">自动切歌</label>
+	<input id="autoPlayNextBible" type="checkbox" onclick="setAutoPlayNextBible()"><label for="autoPlayNextBible">自动切圣经</label>
+	<br style="clear:both">
+</div>
+
+<div class="formGroupHead">字体设置</div>
+<div class="input-group">
+    <label>大小：</label>
+    <input id="fontsmall" type="radio" name="fontsize" onclick="javascript:setFontSize('small')"><label for="fontsmall">小</label>
+    <input id="fontnormal" type="radio" name="fontsize" onclick="javascript:setFontSize('normal')"><label for="fontnormal">中</label>
+    <input id="fontlarge" type="radio" name="fontsize" onclick="javascript:setFontSize('large')"><label for="fontlarge">大</label>
+    <br style="clear:both">
+</div>
+
+<div class="formGroupHead">其它设置</div>
+<ul class="list">
+   <li>
+		<a href="javascript:openLinkInExternal('http://www.cathassist.org/3rd/aboutus.html');" data-ignore="true" target="_blank">关于我们</a>
+	</li>
+   <li>
+       <a href="javascript:shareMessage('给你推荐【天主教小助手】，支持思高版圣经、梵蒂冈广播、教会新闻、信仰生活等多种功能，下载方式：http://app.cathassist.org/desc.html')" data-ignore="true">分享小助手</a>
+   </li>
+</ul>
+<div class="input-group">
+	<a class="button icon" href="javascript:localDB.clearAll()">清空数据库</a>
+</div>
