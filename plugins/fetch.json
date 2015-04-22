@@ -16,5 +16,11 @@
             "type": "registry",
             "id": "com.ionic.keyboard"
         }
+    },
+    "io.litehelpers.cordova.sqlite": {
+        "source": {
+            "type": "registry",
+            "id": "io.litehelpers.cordova.sqlite"
+        }
     }
 }
