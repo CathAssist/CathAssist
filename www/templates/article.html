@@ -1,0 +1,14 @@
+<ion-view view-title="{{article.title}}">
+    <ion-content>
+        <div class="list card">
+            <div class="item">
+                <h2>{{article.title}}</h2>
+                <p>{{article.time}}</p>
+            </div>
+
+            <div class="item item-body" ng-bind-html="article.content">
+                {{article.content}}
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

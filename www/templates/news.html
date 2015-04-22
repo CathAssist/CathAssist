@@ -1,0 +1,11 @@
+<ion-view view-title="{{title}}">
+    <ion-content>
+        <div class="list">
+            <a class="item item-thumbnail-left" ng-repeat="item in news" class="item item-avatar" href="#/app/article/{{channel}},{{item.id}}">
+                <img src="{{item.pic}}" ng-show="item.pic">
+                <h2>{{item.title}}</h2>
+                <p>{{item.desc}}</p>
+            </a>
+        </div>
+    </ion-content>
+</ion-view>
