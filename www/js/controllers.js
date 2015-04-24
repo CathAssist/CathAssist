@@ -28,6 +28,17 @@ angular.module('cathassist.controllers', [])
     $scope.channel = $channel;
     $scope.title = localDB.getChannelName($channel);
 
+    //convert hash to array
+    $scope.hash2Array = function (hash) {
+        var arr = new Array();
+        for (var id in hash) {
+            arr.push(hash[id]);
+        }
+        console.log("testttt");
+        return arr;
+    };
+
+    //refresh current news
     $scope.refresh = function () {
         localDB.getNews($channel, $id)
             .then(function (data) {
@@ -38,6 +49,7 @@ angular.module('cathassist.controllers', [])
             });
     };
 
+    //load more news
     $scope.loadMore = function () {
         if (Object.keys($scope.news).length < 1)
         {
