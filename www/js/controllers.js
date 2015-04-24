@@ -34,13 +34,12 @@ angular.module('cathassist.controllers', [])
         for (var id in hash) {
             arr.push(hash[id]);
         }
-        console.log("testttt");
         return arr;
     };
 
     //refresh current news
     $scope.refresh = function () {
-        localDB.getNews($channel, $id)
+        localDB.getNews($channel, -2)
             .then(function (data) {
                 data.forEach(function (item) {
                     $scope.news[item.id] = item;
