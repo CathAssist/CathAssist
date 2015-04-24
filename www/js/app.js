@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('cathassist', ['ionic', 'cathassist.controllers', 'cathassist.services'])
+angular.module('cathassist', ['ionic', 'cathassist.controllers', 'cathassist.services', 'cathassist.filters'])
 
 .run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
@@ -48,6 +48,16 @@ angular.module('cathassist', ['ionic', 'cathassist.controllers', 'cathassist.ser
                 controller: 'ArticleCtrl'
             }
         }
+    })
+
+    .state('app.praybook', {
+        url: "/praybook",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/praybook.html",
+                controller: 'PraybookCtrl'
+            }
+        }  
     })
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/app/news/vaticanacn,-1');

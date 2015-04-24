@@ -1,0 +1,17 @@
+<ion-view view-title="{{title}}">
+    <ion-content>
+        <ion-refresher on-refresh="refresh()">
+        </ion-refresher>
+
+        <div class="list card" ng-repeat="item in prays" >
+            <div class="item">
+                <h2>{{item.name}}</h2>
+                <p>{{item.time}}</p>
+            </div>
+
+            <div class="item item-body">
+            {{item.text}}
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

@@ -69,7 +69,7 @@ angular.module('cathassist.controllers', [])
     }
 })
 
-.controller('ArticleCtrl', function ($scope, $http, $stateParams, localDB) {
+.controller('ArticleCtrl', function ($scope, $http, $stateParams,$ionicLoading, localDB) {
     console.log($stateParams.arg);
     $args = $stateParams.arg.split(',');
     if ($args < 2)
@@ -77,10 +77,49 @@ angular.module('cathassist.controllers', [])
     $channel = $args[0];
     $id = $args[1];
 
+    $ionicLoading.show({
+        template: 'loading'
+    });
     localDB.getArticle($channel, $id)
         .then(function (data) {
             $scope.article = data;
+            console.log(data);
+            $ionicLoading.hide();
         });
     $scope.channel = $channel;
     $scope.title = localDB.getChannelName($channel);
+
+    //refresh current news
+    $scope.refresh = function () {
+        localDB.getArticle($channel, $id)
+            .then(function (data) {
+                $scope.article = data;
+                $scope.$broadcast('scroll.refreshComplete');
+            });
+    };
+})
+
+.controller('PraybookCtrl', function ($scope, $http,$ionicLoading, localDB){
+    console.log('pray book controller');
+
+    $ionicLoading.show({
+        template: 'loading'
+    });
+    localDB.getPraybook()
+        .then(function (data) {
+            $scope.prays = data;
+            console.log(data);
+            $ionicLoading.hide();
+        });
+    $scope.title = "彼此代祷";
+
+    //refresh current news
+    $scope.refresh = function () {
+        localDB.getPraybook(1)
+            .then(function (data) {
+                $scope.prays = data;
+                $scope.$broadcast('scroll.refreshComplete');
+            });
+    };
 });
+

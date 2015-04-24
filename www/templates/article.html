@@ -1,12 +1,14 @@
 <ion-view view-title="{{article.title}}">
     <ion-content>
+        <ion-refresher on-refresh="refresh()">
+        </ion-refresher>
         <div class="list card">
             <div class="item">
                 <h2>{{article.title}}</h2>
                 <p>{{article.time}}</p>
             </div>
 
-            <div class="item item-body" ng-bind-html="article.content">
+            <div class="item item-body" ng-bind-html="article.content | to_trusted">
                 {{article.content}}
             </div>
         </div>
