@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('cathassist.controllers', [])
 
 .controller('AppCtrl', function ($scope, $ionicModal, $timeout) {
     // Form data for the login modal
@@ -7,7 +7,7 @@ angular.module('starter.controllers', [])
 .controller('PlaylistCtrl', function ($scope, $stateParams) {
 })
 
-.controller('NewsCtrl', function ($scope, $http, $stateParams) {
+.controller('NewsCtrl', function ($scope, $http, $stateParams, localDB) {
     console.log($stateParams.arg);
     $args = $stateParams.arg.split(',');
     if ($args < 1)
@@ -18,9 +18,15 @@ angular.module('starter.controllers', [])
         $id = $args[1];
     }
 
+    localDB.getNews($channel, $id)
+        .then(function (data) {
+            $scope.news = data;
+        });
+    /*
     $http.jsonp('http://www.cathassist.org/' + $channel + '/getarticle.php?type=jsonp&mode=list&from=' + $id + '&&callback=JSON_CALLBACK').success(function (data) {
         $scope.news = data;
     });
+    */
     $scope.title = '普世教会';
     $scope.channel = $channel;
 })

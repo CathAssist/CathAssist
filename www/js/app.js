@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
+angular.module('cathassist', ['ionic', 'cathassist.controllers', 'cathassist.services'])
 
 .run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
@@ -17,8 +17,6 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             // org.apache.cordova.statusbar required
             StatusBar.styleDefault();
         }
-
-        window.localDB = new CathAssistDB();
     });
 })
 
