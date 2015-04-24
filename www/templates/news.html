@@ -1,11 +1,16 @@
 <ion-view view-title="{{title}}">
     <ion-content>
+        <ion-refresher on-refresh="refresh()">
+        </ion-refresher>
         <div class="list">
-            <a class="item item-thumbnail-left" ng-repeat="item in news" class="item item-avatar" href="#/app/article/{{channel}},{{item.id}}">
+            <a class="item item-thumbnail-left" ng-repeat="(id,item) in news" class="item item-avatar" href="#/app/article/{{channel}},{{item.id}}">
                 <img src="{{item.pic}}" ng-show="item.pic">
                 <h2>{{item.title}}</h2>
                 <p>{{item.desc}}</p>
             </a>
         </div>
+           
+        <ion-infinite-scroll on-infinite="loadMore()" distance="1%">
+        </ion-infinite-scroll>
     </ion-content>
 </ion-view>

@@ -17,11 +17,26 @@ angular.module('cathassist.services', [])
             tx.executeSql('CREATE TABLE IF NOT EXISTS stuff (date unique,mass,med,comp,let,lod,thought,ordo,ves,saint)');            tx.executeSql('CREATE TABLE IF NOT EXISTS vaticanacn (id integer unique,title,pic,content,cate,time)');            tx.executeSql('CREATE TABLE IF NOT EXISTS faithlife (id integer unique,title,pic,content,cate,time)');            tx.executeSql('CREATE TABLE IF NOT EXISTS articles (id integer unique,title,pic,content,cate,time)');
         });
     };
+
+    //get name of channel
+    service.getChannelName = function ($channel) {
+        if ($channel == 'vaticanacn') {
+            return '普世教会';
+        }
+        else if ($channel == 'faithlife') {
+            return '信仰生活';
+        }
+        else if ($channel == 'articles') {
+            return '主内分享';
+        }
+        return 'unknown';
+    };
     //get news list
     service.getNews = function ($channel, $from) {
         console.log('service get news...');
         var deferred = $q.defer();
-        $http.jsonp('http://www.cathassist.org/' + $channel + '/getarticle.php?type=jsonp&mode=list&from=' + $id + '&&callback=JSON_CALLBACK')
+        console.log('from=' + $from);
+        $http.jsonp('http://www.cathassist.org/' + $channel + '/getarticle.php?type=jsonp&mode=list&from=' + $from + '&&callback=JSON_CALLBACK')
             .success(function (data) {
                 deferred.resolve(data);
             })
@@ -30,6 +45,20 @@ angular.module('cathassist.services', [])
             });
         return deferred.promise;
     };
+    //get article
+    service.getArticle = function ($channel, $id) {
+        console.log('service get article...');
+        var deferred = $q.defer();
+        $http.jsonp('http://www.cathassist.org/' + $channel + '/getarticle.php?type=jsonp&mode=item&id=' + $id + '&&callback=JSON_CALLBACK')
+            .success(function (data) {
+                deferred.resolve(data);
+            })
+            .error(function () {
+                deferred.reject('error.');
+            });
+        return deferred.promise;
+    };
+
 
 
     if (service.db == null || service.db == undefined) {

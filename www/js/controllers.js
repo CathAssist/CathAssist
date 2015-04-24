@@ -18,20 +18,47 @@ angular.module('cathassist.controllers', [])
         $id = $args[1];
     }
 
+    $scope.news = {};
     localDB.getNews($channel, $id)
         .then(function (data) {
-            $scope.news = data;
+            data.forEach(function (item) {
+                $scope.news[item.id] = item;
+            });
         });
-    /*
-    $http.jsonp('http://www.cathassist.org/' + $channel + '/getarticle.php?type=jsonp&mode=list&from=' + $id + '&&callback=JSON_CALLBACK').success(function (data) {
-        $scope.news = data;
-    });
-    */
-    $scope.title = '普世教会';
     $scope.channel = $channel;
+    $scope.title = localDB.getChannelName($channel);
+
+    $scope.refresh = function () {
+        localDB.getNews($channel, $id)
+            .then(function (data) {
+                data.forEach(function (item) {
+                    $scope.news[item.id] = item;
+                });
+                $scope.$broadcast('scroll.refreshComplete');
+            });
+    };
+
+    $scope.loadMore = function () {
+        if (Object.keys($scope.news).length < 1)
+        {
+            $scope.$broadcast('scroll.infiniteScrollComplete');
+            return;
+        }
+
+        $from = Object.keys($scope.news)[0];
+        console.log("from:"+$from);
+        localDB.getNews($channel, $from)
+            .then(function (data) {
+                data.forEach(function (item) {
+                    $scope.news[item.id] = item;
+                });
+                //Stop the ion-refresher from spinning
+                $scope.$broadcast('scroll.infiniteScrollComplete');
+            });
+    }
 })
 
-.controller('ArticleCtrl', function ($scope, $http, $stateParams) {
+.controller('ArticleCtrl', function ($scope, $http, $stateParams, localDB) {
     console.log($stateParams.arg);
     $args = $stateParams.arg.split(',');
     if ($args < 2)
@@ -39,10 +66,10 @@ angular.module('cathassist.controllers', [])
     $channel = $args[0];
     $id = $args[1];
 
-    console.log('http://www.cathassist.org/' + $channel + '/getarticle.php?type=jsonp&mode=item&id=' + $id + '&&callback=JSON_CALLBACK');
-    $http.jsonp('http://www.cathassist.org/' + $channel + '/getarticle.php?type=jsonp&mode=item&id='+$id+'&&callback=JSON_CALLBACK').success(function (data) {
-        $scope.article = data;
-    });
-    $scope.title = '普世教会';
+    localDB.getArticle($channel, $id)
+        .then(function (data) {
+            $scope.article = data;
+        });
     $scope.channel = $channel;
+    $scope.title = localDB.getChannelName($channel);
 });
