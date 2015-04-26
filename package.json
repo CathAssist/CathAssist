@@ -18,7 +18,8 @@
     "org.apache.cordova.device",
     "org.apache.cordova.console",
     "com.ionic.keyboard",
-    "io.litehelpers.cordova.sqlite"
+    "io.litehelpers.cordova.sqlite",
+    "org.apache.cordova.media"
   ],
   "cordovaPlatforms": [
     "android",

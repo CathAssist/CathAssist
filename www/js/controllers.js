@@ -83,7 +83,6 @@ angular.module('cathassist.controllers', [])
     localDB.getArticle($channel, $id)
         .then(function (data) {
             $scope.article = data;
-            console.log(data);
             $ionicLoading.hide();
         });
     $scope.channel = $channel;
@@ -108,7 +107,6 @@ angular.module('cathassist.controllers', [])
     localDB.getPraybook()
         .then(function (data) {
             $scope.prays = data;
-            console.log(data);
             $ionicLoading.hide();
         });
     $scope.title = "彼此代祷";

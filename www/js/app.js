@@ -30,6 +30,16 @@ angular.module('cathassist', ['ionic', 'cathassist.controllers', 'cathassist.ser
         controller: 'AppCtrl'
     })
 
+    .state('app.media', {
+        url: "/media",
+        abstract: true,
+        views: {
+            'mediaBar': {
+                templateUrl: "templates/mediabar.html"
+            }
+        }
+    })
+
     .state('app.news', {
         url: "/news/:arg",
         views: {
