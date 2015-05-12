@@ -29,23 +29,16 @@ angular.module('cathassist', ['ionic', 'cathassist.controllers', 'cathassist.ser
         templateUrl: "templates/menu.html",
         controller: 'AppCtrl'
     })
-
-    .state('app.media', {
-        url: "/media",
-        abstract: true,
-        views: {
-            'mediaBar': {
-                templateUrl: "templates/mediabar.html"
-            }
-        }
-    })
-
+    
     .state('app.news', {
         url: "/news/:arg",
         views: {
             'menuContent': {
                 templateUrl: "templates/news.html",
                 controller: 'NewsCtrl'
+            },
+            'mediaBar': {
+                templateUrl: "templates/mediabar.html"
             }
         }
     })
@@ -56,6 +49,9 @@ angular.module('cathassist', ['ionic', 'cathassist.controllers', 'cathassist.ser
             'menuContent': {
                 templateUrl: "templates/article.html",
                 controller: 'ArticleCtrl'
+            },
+            'mediaBar': {
+                templateUrl: "templates/mediabar.html"
             }
         }
     })
@@ -66,8 +62,11 @@ angular.module('cathassist', ['ionic', 'cathassist.controllers', 'cathassist.ser
             'menuContent': {
                 templateUrl: "templates/praybook.html",
                 controller: 'PraybookCtrl'
+            },
+            'mediaBar': {
+                templateUrl: "templates/mediabar.html"
             }
-        }  
+        }
     })
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/app/news/vaticanacn,-1');

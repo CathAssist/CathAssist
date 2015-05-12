@@ -27,7 +27,7 @@ angular.module('cathassist.controllers', [])
         });
     $scope.channel = $channel;
     $scope.title = localDB.getChannelName($channel);
-
+    
     //convert hash to array
     $scope.hash2Array = function (hash) {
         var arr = new Array();
