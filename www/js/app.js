@@ -25,7 +25,6 @@ angular.module('cathassist', ['ionic', 'cathassist.controllers', 'cathassist.ser
 
     .state('app', {
         url: "/app",
-        abstract: true,
         templateUrl: "templates/menu.html",
         controller: 'AppCtrl'
     })
@@ -38,7 +37,8 @@ angular.module('cathassist', ['ionic', 'cathassist.controllers', 'cathassist.ser
                 controller: 'NewsCtrl'
             },
             'mediaBar': {
-                templateUrl: "templates/mediabar.html"
+                templateUrl: "templates/mediabar.html",
+                controller: 'MediaCtrl'
             }
         }
     })
@@ -51,7 +51,8 @@ angular.module('cathassist', ['ionic', 'cathassist.controllers', 'cathassist.ser
                 controller: 'ArticleCtrl'
             },
             'mediaBar': {
-                templateUrl: "templates/mediabar.html"
+                templateUrl: "templates/mediabar.html",
+                controller: 'MediaCtrl'
             }
         }
     })
@@ -64,7 +65,8 @@ angular.module('cathassist', ['ionic', 'cathassist.controllers', 'cathassist.ser
                 controller: 'PraybookCtrl'
             },
             'mediaBar': {
-                templateUrl: "templates/mediabar.html"
+                templateUrl: "templates/mediabar.html",
+                controller: 'MediaCtrl'
             }
         }
     })

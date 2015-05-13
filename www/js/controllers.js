@@ -1,5 +1,38 @@
 angular.module('cathassist.controllers', [])
 
+.controller('MediaCtrl', function ($scope, MediaManager) {
+    MediaManager.addTrack({
+        url: 'http://media.cathassist.org/thought/mp3/2015-05-13.mp3',
+        artist: '晨星生命之音',
+        title: '每日福音',
+        art: 'http://www.cathassist.org/radio/logos/cx.png'
+    });
+
+    MediaManager.currentTrack = MediaManager.tracks[0];
+    $scope.player = MediaManager;
+    $scope.play = function () {
+        if (MediaManager.currentTrack)
+        {
+            console.log("Play status:" + MediaManager.currentTrack.status);
+            if (MediaManager.currentTrack.status == 3)
+            {
+                MediaManager.resume();
+                return;
+            }
+        }
+
+        MediaManager.play();
+    };
+
+    $scope.pause = function () {
+        MediaManager.pause();
+    };
+
+    $scope.seekTo = function () {
+        MediaManager.seekTo(MediaManager.currentTrack.progress);
+    }
+})
+
 .controller('AppCtrl', function ($scope, $ionicModal, $timeout) {
     // Form data for the login modal
 })
